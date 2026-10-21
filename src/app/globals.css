@@ -1,0 +1,222 @@
+@import './rosa.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-dark: #120f10;
+  --color-white: #ffefe6;
+  --color-brand: #f0281e;
+  --font-primary: 'Bdogrotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-in-out-quint: cubic-bezier(0.455, 0.03, 0.088, 0.983);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  font-family: var(--font-primary);
+}
+
+body {
+  background-color: var(--color-dark) !important;
+  color: var(--color-white) !important;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--color-brand);
+  color: var(--color-white);
+}
+
+/* Ensure footer background is warm dark, not brand red */
+.footer {
+  background-color: var(--color-dark) !important;
+  color: var(--color-white) !important;
+}
+
+/*
+ * ============================================================
+ * Nav link / large-link rolling text & diagonal arrow hover.
+ * Reference IX2: in => inOutQuart 500ms; out => instant snap.
+ * Both text copies + both arrows translate to (-100% / (+100%, -100%)).
+ * ============================================================
+ */
+.nav-link-text,
+.hero-link-text {
+  will-change: transform;
+}
+
+.nav-link-wrap:hover .nav-link-text,
+.nav-link-wrap:focus-visible .nav-link-text {
+  transform: translateY(-100%);
+  transition: transform 0.5s var(--ease-in-out-quart);
+}
+
+/* Large link (hero "All work" / footer email). */
+.large-link:hover .hero-link-text,
+.large-link:focus-visible .hero-link-text {
+  transform: translateY(-100%);
+  transition: transform 0.5s var(--ease-in-out-quart);
+}
+
+.large-link .hero-button-arrow {
+  transition: transform 0.5s var(--ease-in-out-quart);
+}
+
+.large-link:hover .hero-button-arrow:not(.hover-arrow),
+.large-link:focus-visible .hero-button-arrow:not(.hover-arrow) {
+  transform: translate3d(100%, -100%, 0);
+}
+
+.large-link:hover .hero-button-arrow.hover-arrow,
+.large-link:focus-visible .hero-button-arrow.hover-arrow {
+  transform: translate3d(100%, -100%, 0);
+}
+
+/*
+ * ============================================================
+ * Infinite Seamless Alternating Project Marquees
+ * 100% reliable 2-unit continuous looping.
+ * ============================================================
+ */
+@keyframes marqueeLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.marquee-track-left {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeft 20s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track-right {
+  display: flex;
+  width: max-content;
+  animation: marqueeRight 20s linear infinite;
+  will-change: transform;
+}
+
+.project-wrapper:hover .marquee-track-left,
+.project-wrapper:hover .marquee-track-right,
+.project-strip:hover .marquee-track-left,
+.project-strip:hover .marquee-track-right {
+  animation-play-state: paused;
+}
+
+/*
+ * ============================================================
+ * Burger lines morph
+ * ============================================================
+ */
+.menu-line {
+  transform: translateY(0);
+  transition: transform 0.25s ease;
+}
+
+.menu-lines-wrap.menu-lines-open .menu-line.is-top {
+  transform: translateY(3.5px);
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+.menu-lines-wrap.menu-lines-open .menu-line.is-bottom {
+  transform: translateY(-3.5px);
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+/*
+ * ============================================================
+ * Grid cell placements
+ * ============================================================
+ */
+.cell-hero-logo {
+  grid-area: 2 / 1 / 3 / 9;
+  align-self: end;
+  justify-self: start;
+}
+
+.cell-selected-works {
+  grid-area: 1 / 3 / 2 / 6;
+}
+
+.cell-hero-bottom-right {
+  grid-area: 2 / 9 / 3 / 13;
+  align-self: stretch;
+  justify-self: stretch;
+}
+
+.cell-intro {
+  grid-area: 1 / 6 / 2 / 10;
+}
+
+.cell-about-top-1 {
+  grid-area: 1 / 1 / 2 / 5;
+}
+
+.cell-about-top-2 {
+  grid-area: 1 / 5 / 2 / 9;
+}
+
+.cell-about-top-3 {
+  grid-area: 1 / 11 / 2 / 13;
+}
+
+.cell-about-heading {
+  grid-area: 1 / 5 / 2 / 13;
+}
+
+.cell-narrative-main {
+  grid-area: 1 / 2 / 2 / 11;
+}
+
+.cell-narrative-secondary {
+  grid-area: 2 / 5 / 3 / 10;
+}
+
+.cell-what-i-do {
+  grid-area: 3 / 2 / 4 / 5;
+}
+
+.cell-what-list {
+  grid-area: 3 / 5 / 4 / 13;
+}
+
+.cell-clients-heading {
+  grid-area: 1 / 2 / 2 / 13;
+}
+
+.cell-clients-label {
+  grid-area: 2 / 1 / 3 / 4;
+}
+
+.cell-clients-list {
+  grid-area: 2 / 5 / 3 / 13;
+}
+
+.cell-nav-menu {
+  grid-area: 1 / 9 / 2 / 11;
+  align-self: start;
+  justify-self: start;
+}
