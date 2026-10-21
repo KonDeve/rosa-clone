@@ -1,0 +1,29 @@
+{
+  "installedSkills": [
+    "andrej-karpathy-skill",
+    "atomic-commits",
+    "backend-architect",
+    "best-practices",
+    "caveman",
+    "code-reviewer",
+    "database-optimizer",
+    "diagnosing-bugs",
+    "frontend-developer",
+    "git-guardrails-claude-code",
+    "impeccable",
+    "permissioned-github",
+    "resolving-merge-conflicts",
+    "responsive-web-design",
+    "security-auditor",
+    "setup-pre-commit",
+    "tdd",
+    "ui-styling",
+    "vercel-react-best-practices",
+    "web-design-guidelines"
+  ],
+  "installedRootFiles": [
+    "AGENTS.md",
+    "HONESTY.md"
+  ],
+  "updatedAt": "2026-10-21T09:42:38.294Z"
+}
