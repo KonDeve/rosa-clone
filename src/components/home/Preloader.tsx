@@ -11,10 +11,10 @@ export default function Preloader() {
   const [mounted, setMounted] = useState(true);
 
   useEffect(() => {
-    // Automatically dismiss preloader curtain after complete sequence
+    // Dismiss preloader after the full curtain reveal sequence
     const timer = setTimeout(() => {
       setMounted(false);
-    }, 2300);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -24,77 +24,70 @@ export default function Preloader() {
       {mounted && (
         <motion.div
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          className="preloader fixed inset-0 z-[9999] flex flex-col justify-end overflow-hidden pointer-events-none"
-          style={{ display: 'flex' }}
+          transition={{ duration: 0.2 }}
+          className="preloader fixed inset-0 z-[9999] pointer-events-none overflow-hidden select-none"
         >
-          {/* Layer 1: Red background curtain (starts covering screen, exits up at 1.35s) */}
+          {/* Layer 1: Red background curtain + First Rosa (Cream text) */}
           <motion.div
             initial={{ y: '0%' }}
             animate={{ y: '-100%' }}
             transition={{
-              duration: 0.95,
-              delay: 1.35,
+              duration: 0.75,
+              delay: 1.1,
               ease: EASE_CURTAIN,
             }}
-            className="preloader-background absolute inset-0 z-10 bg-[#f0281e]"
-          />
+            className="preloader-background absolute inset-0 z-10 bg-[#f0281e] flex flex-col justify-end"
+          >
+            <div className="preloader-bottom w-full">
+              <div className="container">
+                <div className="preloader-logo-wrap flex items-baseline overflow-hidden -ml-[1.5vw]">
+                  {LETTERS.map((letter, idx) => (
+                    <div key={idx} className="overflow-hidden inline-block mr-[1.5vw]">
+                      <motion.span
+                        initial={{ y: '100%' }}
+                        animate={{ y: '0%' }}
+                        transition={{
+                          duration: 0.6,
+                          delay: 0.05 + idx * 0.05,
+                          ease: EASE_OUT_EXPO,
+                        }}
+                        className="preloader-logo-text block font-bold text-[#ffefe6]"
+                      >
+                        {letter}
+                      </motion.span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
 
-          {/* Layer 2: Light cream curtain (rises at 0.35s to cover red, exits up at 1.2s) */}
+          {/* Layer 2: Cream curtain + Second Rosa (Brand Red text, travels WITH the curtain) */}
           <motion.div
             initial={{ y: '100%' }}
             animate={{ y: ['100%', '0%', '-100%'] }}
             transition={{
-              times: [0, 0.45, 1],
-              duration: 1.85,
-              delay: 0.35,
+              times: [0, 0.44, 1],
+              duration: 1.3,
+              delay: 0.45,
               ease: EASE_CURTAIN,
             }}
-            className="preloader-background-light absolute inset-0 z-20 bg-[#ffefe6]"
-          />
-
-          {/* Layer 3: Typography positioned exactly as hero-bottom */}
-          <div className="preloader-bottom relative z-30 w-full pointer-events-none">
-            <div className="container">
-              <motion.div
-                initial={{ opacity: 1 }}
-                animate={{ opacity: [1, 1, 0] }}
-                transition={{
-                  times: [0, 0.85, 1],
-                  duration: 1.5,
-                  delay: 0,
-                }}
-                className="preloader-logo-wrap flex items-baseline overflow-hidden -ml-[1.5vw]"
-              >
-                {LETTERS.map((letter, idx) => (
-                  <div key={idx} className="overflow-hidden inline-block mr-[1.5vw]">
-                    <motion.span
-                      initial={{ y: '100%', color: '#ffefe6' }}
-                      animate={{
-                        y: '0%',
-                        color: ['#ffefe6', '#ffefe6', '#f0281e'],
-                      }}
-                      transition={{
-                        y: {
-                          duration: 0.8,
-                          delay: 0.05 + idx * 0.05,
-                          ease: EASE_OUT_EXPO,
-                        },
-                        color: {
-                          duration: 0.4,
-                          delay: 0.65,
-                          ease: 'easeInOut',
-                        },
-                      }}
-                      className="preloader-logo-text block font-bold"
-                    >
-                      {letter}
-                    </motion.span>
-                  </div>
-                ))}
-              </motion.div>
+            className="preloader-background-light absolute inset-0 z-20 bg-[#ffefe6] flex flex-col justify-end"
+          >
+            <div className="preloader-bottom w-full">
+              <div className="container">
+                <div className="preloader-logo-wrap flex items-baseline overflow-hidden -ml-[1.5vw]">
+                  {LETTERS.map((letter, idx) => (
+                    <div key={idx} className="overflow-hidden inline-block mr-[1.5vw]">
+                      <span className="preloader-logo-text block font-bold text-[#f0281e]">
+                        {letter}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
