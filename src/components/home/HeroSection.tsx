@@ -122,8 +122,8 @@ export default function HeroSection() {
               </div>
 
               {/* Scroll down & contact */}
-              <div className="scroll-down-and-contact-wrap flex items-center justify-between gap-6 pt-4 text-xs font-mono text-[#ffefe6]/70">
-                <div className="scroll-down-arrow animate-bounce">
+              <div className="scroll-down-and-contact-wrap flex items-end justify-between gap-6 pt-4">
+                <div className="scroll-down-arrow self-end">
                   <svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#ffefe6]">
                     <path
                       d="M9.26172 0.75V13.3945L14.0312 8.60156L15.7773 10.3359L7.99609 18.0938L0.226562 10.3359L1.94922 8.60156L6.73047 13.3945V0.75H9.26172Z"
@@ -132,9 +132,9 @@ export default function HeroSection() {
                   </svg>
                 </div>
 
-                <div className="text-right text-xs font-light text-[#ffefe6]/70">
+                <div className="text-left text-base lg:text-[1.25rem] font-medium leading-[130%] tracking-[-0.02em] text-[#ffefe6] self-end">
                   Get in touch at <br />
-                  <a href="mailto:hi@rosastudio.com" className="text-[#ffefe6] hover:underline font-normal">
+                  <a href="mailto:hi@rosastudio.com" className="text-[#ffefe6] hover:underline">
                     hi@rosastudio.com
                   </a>
                 </div>

@@ -52,7 +52,7 @@ export default function Navbar() {
           <Link
             href="/"
             aria-current="page"
-            className="logo-wrap brand w--current"
+            className="logo-wrap brand w--current cell-nav-logo"
             onClick={(e) => {
               if (typeof window !== 'undefined' && (window.location.pathname === '/' || window.location.pathname === '')) {
                 e.preventDefault();
@@ -112,7 +112,9 @@ export default function Navbar() {
             </div>
           </nav>
 
-          <div className="nav-title cell-nav-title">Freelance 3D designer Based in London</div>
+          <div className="nav-title cell-nav-title">
+            Freelance 3D designer<br />Based in London
+          </div>
 
           <div className="nav-copyright cell-nav-copyright">© 2024</div>
         </div>

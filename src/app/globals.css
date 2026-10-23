@@ -327,8 +327,51 @@ body {
   }
 }
 
+.cell-nav-logo {
+  grid-area: 1 / 1 / 2 / 5;
+  align-self: start;
+  justify-self: start;
+}
+
+.cell-nav-title {
+  grid-area: 1 / 5 / 2 / 10;
+  max-width: 18ch;
+  align-self: start;
+  justify-self: start;
+  font-size: var(--font-size-base, 1.25rem);
+  line-height: 130%;
+  font-weight: 500;
+  color: var(--color-white, #ffefe6);
+}
+
 .cell-nav-menu {
   grid-area: 1 / 9 / 2 / 11;
   align-self: start;
   justify-self: start;
+}
+
+.cell-nav-copyright {
+  grid-area: 1 / 11 / 2 / 13;
+  align-self: start;
+  justify-self: end;
+  text-align: right;
+  font-size: var(--font-size-base, 1.25rem);
+  line-height: 130%;
+  font-weight: 500;
+  color: var(--color-white, #ffefe6);
+}
+
+@media screen and (max-width: 991px) {
+  .cell-nav-title {
+    font-size: var(--font-size-small, 1rem);
+  }
+  .cell-nav-copyright {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .cell-nav-title {
+    display: none;
+  }
 }
