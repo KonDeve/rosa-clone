@@ -47,7 +47,7 @@ export default function HeroSection() {
       <div className="w-full pt-32" />
 
       {/* 2. Hero Bottom (Exact Webflow 12-Column Grid) */}
-      <div className="hero-bottom relative z-10 w-full mb-[calc(10vh+2.5rem)]">
+      <div className="hero-bottom relative z-10 w-full">
         <div className="container">
           <div className="w-layout-grid _12-column-grid items-end">
             {/* Selected Works (Row 1, Cols 3-6) */}
