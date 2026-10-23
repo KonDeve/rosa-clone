@@ -23,9 +23,9 @@ export default function HeroSection() {
       {/* 1. Fullscreen Image Background with Scale-Down & Scroll Parallax */}
       <div className="fullscreen-image-wrap absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <motion.div
-          initial={{ scale: 1.8 }}
+          initial={{ scale: 2.2 }}
           animate={{ scale: 1 }}
-          transition={{ duration: 1.4, delay: 0.4, ease: EASE_OUT_EXPO }}
+          transition={{ duration: 1.6, delay: 1.1, ease: EASE_OUT_EXPO }}
           style={{ y: imageY }}
           className="relative w-full h-[110%] -top-[5%]"
         >
@@ -54,7 +54,7 @@ export default function HeroSection() {
             <motion.div
               initial={{ y: '2rem', opacity: 0 }}
               animate={{ y: '0rem', opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.9, ease: EASE_OUT_EXPO }}
+              transition={{ delay: 1.45, duration: 0.9, ease: EASE_OUT_EXPO }}
               style={{ gridArea: '1 / 3 / 2 / 6' }}
               className="selected-works-text cell-selected-works text-sm md:text-base font-medium text-[#ffefe6] leading-[130%] tracking-[-0.02em] self-end hidden md:block"
             >
@@ -75,7 +75,7 @@ export default function HeroSection() {
                     animate={{ y: '0%' }}
                     transition={{
                       duration: 0.9,
-                      delay: 0.6 + idx * 0.05,
+                      delay: 1.35 + idx * 0.05,
                       ease: EASE_OUT_EXPO,
                     }}
                     className="hero-logo block text-[23vw] font-bold leading-[0.82] tracking-[-0.05em] text-[#ffefe6]"
@@ -90,7 +90,7 @@ export default function HeroSection() {
             <motion.div
               initial={{ y: '2.5rem', opacity: 0 }}
               animate={{ y: '0rem', opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.9, ease: EASE_OUT_EXPO }}
+              transition={{ delay: 1.45, duration: 0.9, ease: EASE_OUT_EXPO }}
               style={{ gridArea: '2 / 9 / 3 / 13' }}
               className="hero-bottom-right cell-hero-bottom-right flex flex-col justify-between self-stretch space-y-8"
             >
