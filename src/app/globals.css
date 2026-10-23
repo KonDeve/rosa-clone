@@ -44,6 +44,49 @@ body {
 
 /*
  * ============================================================
+ * Webflow Exact Sizing: Full-width fluid container & sections
+ * Matches inspo 100%: fluid viewport width, 3rem desktop padding,
+ * never constrained by arbitrary fixed Tailwind max-widths.
+ * ============================================================
+ */
+.container {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-left: var(--site-padding--desktop) !important;
+  padding-right: var(--site-padding--desktop) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+@media screen and (max-width: 991px) {
+  .container {
+    padding-left: var(--site-padding--tablet) !important;
+    padding-right: var(--site-padding--tablet) !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding-left: var(--site-padding--mobile) !important;
+    padding-right: var(--site-padding--mobile) !important;
+  }
+}
+
+.container.styleguide-container {
+  max-width: 800px !important;
+}
+
+.section {
+  width: 100%;
+  position: relative;
+}
+
+.hero-section {
+  min-height: 110vh !important;
+}
+
+/*
+ * ============================================================
  * Nav link / large-link rolling text & diagonal arrow hover.
  * Reference IX2: in => inOutQuart 500ms; out => instant snap.
  * Both text copies + both arrows translate to (-100% / (+100%, -100%)).
