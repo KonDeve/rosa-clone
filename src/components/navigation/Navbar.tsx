@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 const EASE_OUT_EXPO = [0.19, 1, 0.22, 1] as [number, number, number, number];
@@ -48,9 +49,19 @@ export default function Navbar() {
     >
       <div className="container">
         <div className="w-layout-grid _12-column-grid nav-grid">
-          <a href="/" aria-current="page" className="logo-wrap brand w--current">
+          <Link
+            href="/"
+            aria-current="page"
+            className="logo-wrap brand w--current"
+            onClick={(e) => {
+              if (typeof window !== 'undefined' && (window.location.pathname === '/' || window.location.pathname === '')) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
+          >
             <img src="/assets/Rosa.svg" alt="" className="logo" loading="lazy" />
-          </a>
+          </Link>
 
           <div
             className="menu-button"
