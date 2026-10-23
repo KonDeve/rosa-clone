@@ -30,7 +30,8 @@ export default function WorkSection() {
             <Link
               key={project.slug}
               href={`/project/${project.slug}`}
-              className={`project-wrapper group relative block w-full py-[4.5vw] overflow-hidden border-b border-[#262626] transition-colors duration-300 ${
+              prefetch={true}
+              className={`project-wrapper group relative block w-full py-[4.5vw] overflow-hidden border-b border-[#262626] cursor-pointer ${
                 idx === 0 ? 'first-project border-t' : ''
               }`}
             >
@@ -41,7 +42,7 @@ export default function WorkSection() {
               />
 
               {/* Infinite Marquee Track */}
-              <div className="marquee relative z-10 flex w-full overflow-hidden select-none">
+              <div className="marquee relative z-10 flex w-full overflow-hidden select-none pointer-events-none">
                 <div className={`${trackClass} flex items-center`}>
                   {/* Repeated Block 1 */}
                   <div className="flex items-center flex-nowrap flex-shrink-0">
