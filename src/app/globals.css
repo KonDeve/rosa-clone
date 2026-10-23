@@ -119,11 +119,13 @@ body {
   will-change: transform;
 }
 
-.project-wrapper:hover .marquee-track-left,
-.project-wrapper:hover .marquee-track-right,
-.project-strip:hover .marquee-track-left,
-.project-strip:hover .marquee-track-right {
-  animation-play-state: paused;
+/*
+ * Project background overlay: override display:none from Webflow rosa.css
+ * Marquee tracks keep moving smoothly on hover without pausing.
+ */
+.project-background {
+  display: block !important;
+  pointer-events: none;
 }
 
 /*
