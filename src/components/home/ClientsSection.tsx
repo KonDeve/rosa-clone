@@ -45,8 +45,8 @@ export default function ClientsSection() {
                 className="clients-list-item"
                 initial={{ y: '5rem', opacity: 0 }}
                 whileInView={{ y: '0rem', opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 2, ease: EASE_OUT_EXPO }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 1.5, ease: EASE_OUT_EXPO }}
               >
                 <p className="client-name">{client.name}</p>
                 <p className="client-category">{client.category}</p>

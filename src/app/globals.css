@@ -260,6 +260,73 @@ body {
   grid-area: 2 / 5 / 3 / 13;
 }
 
+/* Clients list item 8-column layout matching Webflow */
+.clients-list-item {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  column-gap: 1.5rem;
+  row-gap: 1.5rem;
+  padding-top: 1.5vw;
+  padding-bottom: 1.5vw;
+  border-bottom: 1px solid var(--color-white-12, #262626);
+}
+
+.client-name {
+  grid-area: span 1 / span 3 / span 1 / span 3;
+}
+
+.client-category {
+  grid-area: span 1 / span 3 / span 1 / span 3;
+}
+
+.client-year {
+  grid-area: span 1 / span 2 / span 1 / span 2;
+  justify-self: end;
+  text-align: right;
+}
+
+@media screen and (max-width: 991px) {
+  .clients-list-item {
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  .client-name,
+  .client-category,
+  .client-year {
+    grid-area: span 1 / span 1 / span 1 / span 1;
+  }
+  .client-year {
+    justify-self: end;
+    text-align: right;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .clients-list-item {
+    grid-template-columns: 1fr 1fr;
+  }
+  .client-year {
+    grid-column: span 2;
+    justify-self: start;
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .clients-list-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+  .client-year {
+    justify-self: start;
+    text-align: left;
+  }
+}
+
 .cell-nav-menu {
   grid-area: 1 / 9 / 2 / 11;
   align-self: start;
