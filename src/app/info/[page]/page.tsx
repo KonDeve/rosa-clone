@@ -1,6 +1,6 @@
 import React from 'react';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
 
 export function generateStaticParams() {
   return [
@@ -10,14 +10,14 @@ export function generateStaticParams() {
   ];
 }
 
-export function generateMetadata({ params }: { params: { page: string } }) {
+export function generateMetadata({ params }: { params: { page: string } }): Metadata {
   const titles: Record<string, string> = {
     styleguide: 'Styleguide',
-    licenses: 'Licenses',
+    licenses: 'Instructions',
     changelog: 'Changelog',
   };
   return {
-    title: `${titles[params.page] || 'Info'} — Rosa Template`,
+    title: titles[params.page] || 'Info',
   };
 }
 
@@ -28,172 +28,164 @@ export default function InfoPage({ params }: { params: { page: string } }) {
     notFound();
   }
 
-  return (
-    <main className="min-h-screen bg-[#120f10] text-[#ffefe6] pt-36 pb-32 px-6 md:px-12">
-      <div className="max-w-[1100px] mx-auto space-y-16">
-        {/* Back Link */}
-        <div>
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#ffefe6]/50 hover:text-[#ffefe6] transition-colors"
-          >
-            <span>&larr; Back to Home</span>
-          </Link>
+  if (page === 'styleguide') {
+    return (
+      <main className="min-h-screen bg-[#120f10] text-[#ffefe6]">
+        {/* Styleguide Hero */}
+        <div className="section styelguide-hero-section">
+          <div className="container styleguide-container">
+            <h1 className="styleguide-heading">Styleguide</h1>
+            <div className="divider styleguide-bottom-divider" />
+          </div>
         </div>
 
-        {/* 1. Styleguide */}
-        {page === 'styleguide' && (
-          <div className="space-y-20">
-            <div>
-              <h1 className="text-6xl md:text-8xl font-light tracking-tight text-[#ffefe6] mb-4">
-                Styleguide
-              </h1>
-              <p className="text-[#ffefe6]/70 text-lg font-light max-w-xl">
-                Design tokens, color system, and typographic scale extracted from Rosa.
-              </p>
+        {/* Colors */}
+        <div className="section">
+          <div className="container styleguide-container">
+            <div className="styleguide-heading-wrapper">
+              <h2 className="text-large margin-bottom-8">Colors</h2>
+              <p>Here you can see (and change) all the colors in the template</p>
             </div>
-
-            {/* Colors */}
-            <div className="border-t border-[#262626] pt-12 space-y-6">
-              <h2 className="text-2xl font-light text-[#ffefe6]">Colors</h2>
-              <p className="text-sm font-light text-[#ffefe6]/60">
-                Here you can see all the color tokens configured in the Rosa template.
-              </p>
-
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 pt-4">
-                <div className="p-6 rounded-2xl bg-[#120f10] border border-[#262626] space-y-2">
-                  <div className="h-16 w-full rounded-lg bg-[#120f10] border border-[#262626]" />
-                  <span className="text-xs font-mono text-[#ffefe6]/50 block">Dark Canvas</span>
-                  <span className="text-sm font-mono text-[#ffefe6]">#120F10</span>
-                </div>
-
-                <div className="p-6 rounded-2xl bg-white/[0.03] border border-[#262626] space-y-2">
-                  <div className="h-16 w-full rounded-lg bg-[#ffefe6]" />
-                  <span className="text-xs font-mono text-[#ffefe6]/50 block">Warm White</span>
-                  <span className="text-sm font-mono text-[#ffefe6]">#FFEFE6</span>
-                </div>
-
-                <div className="p-6 rounded-2xl bg-white/[0.03] border border-[#262626] space-y-2">
-                  <div className="h-16 w-full rounded-lg bg-[#262626]" />
-                  <span className="text-xs font-mono text-[#ffefe6]/50 block">White 12 Divider</span>
-                  <span className="text-sm font-mono text-[#ffefe6]">#262626</span>
-                </div>
-
-                <div className="p-6 rounded-2xl bg-white/[0.03] border border-[#262626] space-y-2">
-                  <div className="h-16 w-full rounded-lg bg-[#a7a79b]" />
-                  <span className="text-xs font-mono text-[#ffefe6]/50 block">Speaker Sage</span>
-                  <span className="text-sm font-mono text-[#ffefe6]">#A7A79B</span>
-                </div>
-
-                <div className="p-6 rounded-2xl bg-white/[0.03] border border-[#262626] space-y-2">
-                  <div className="h-16 w-full rounded-lg bg-[#aa93c0]" />
-                  <span className="text-xs font-mono text-[#ffefe6]/50 block">Package Purple</span>
-                  <span className="text-sm font-mono text-[#ffefe6]">#AA93C0</span>
-                </div>
-
-                <div className="p-6 rounded-2xl bg-white/[0.03] border border-[#262626] space-y-2">
-                  <div className="h-16 w-full rounded-lg bg-[#303438]" />
-                  <span className="text-xs font-mono text-[#ffefe6]/50 block">Printer Charcoal</span>
-                  <span className="text-sm font-mono text-[#ffefe6]">#303438</span>
-                </div>
-
-                <div className="p-6 rounded-2xl bg-white/[0.03] border border-[#262626] space-y-2">
-                  <div className="h-16 w-full rounded-lg bg-[#8fa6b3]" />
-                  <span className="text-xs font-mono text-[#ffefe6]/50 block">Scapes Blue</span>
-                  <span className="text-sm font-mono text-[#ffefe6]">#8FA6B3</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Typography */}
-            <div className="border-t border-[#262626] pt-12 space-y-8">
-              <h2 className="text-2xl font-light text-[#ffefe6]">Typography</h2>
-              <p className="text-sm font-light text-[#ffefe6]/60">
-                Primary typographic hierarchy in BDOGrotesk.
-              </p>
-
-              <div className="space-y-8 border-t border-[#262626]/50 pt-8">
-                <div>
-                  <span className="text-xs font-mono text-[#ffefe6]/40 uppercase tracking-widest">H1 Heading (13vw)</span>
-                  <h1 className="text-5xl md:text-7xl font-light tracking-tight text-[#ffefe6] mt-2">
-                    Display Title
-                  </h1>
-                </div>
-
-                <div>
-                  <span className="text-xs font-mono text-[#ffefe6]/40 uppercase tracking-widest">H2 Heading</span>
-                  <h2 className="text-4xl md:text-5xl font-light tracking-tight text-[#ffefe6] mt-2">
-                    Section Headline
-                  </h2>
-                </div>
-
-                <div>
-                  <span className="text-xs font-mono text-[#ffefe6]/40 uppercase tracking-widest">Paragraph Text</span>
-                  <p className="text-base md:text-lg font-light text-[#ffefe6]/80 leading-relaxed max-w-2xl mt-2">
-                    This is standard paragraph copy used for intros, descriptions, and biographies across Rosa.
-                  </p>
-                </div>
-              </div>
+            <div className="_4-column-grid">
+              <div className="color-container"><div className="swatch dark" /></div>
+              <div className="color-container"><div className="swatch medium-dark" /></div>
+              <div className="color-container"><div className="swatch white-12" /></div>
+              <div className="color-container"><div className="swatch white" /></div>
+              <div className="color-container"><div className="swatch brand" /></div>
             </div>
           </div>
-        )}
+        </div>
 
-        {/* 2. Licenses */}
-        {page === 'licenses' && (
-          <div className="space-y-12">
-            <div>
-              <h1 className="text-6xl md:text-8xl font-light tracking-tight text-[#ffefe6] mb-4">
-                Licenses
-              </h1>
-              <p className="text-[#ffefe6]/80 text-lg font-light max-w-xl">
-                All graphical assets in this template are licensed for personal and commercial use. If you&apos;d like to use a specific asset, please check the license below.
-              </p>
+        {/* Typography */}
+        <div className="section">
+          <div className="container styleguide-container">
+            <div className="styleguide-heading-wrapper">
+              <h2 className="text-large margin-bottom-8">Typography</h2>
+              <p>Here you can see and change the typography</p>
             </div>
+            <div className="typography-container"><div className="label">Paragraph</div><div>This is some text.</div></div>
+            <div className="typography-container"><div className="label">Text Large</div><div className="text-large">This is some text.</div></div>
+            <div className="typography-container"><div className="label">H1</div><h1>Heading</h1></div>
+            <div className="typography-container"><div className="label">H2</div><h2>Heading</h2></div>
+            <div className="typography-container"><div className="label">H3</div><h3>Heading</h3></div>
+            <div className="typography-container"><div className="label">H4</div><h4>Heading</h4></div>
+            <div className="typography-container"><div className="label">H5</div><h5>Heading</h5></div>
+            <div className="typography-container"><div className="label">H6</div><h6>Heading</h6></div>
+          </div>
+        </div>
 
-            <div className="border-t border-[#262626] pt-10 space-y-10">
-              <div className="p-8 rounded-2xl bg-white/[0.02] border border-[#262626] space-y-4">
-                <h2 className="text-2xl font-light text-[#ffefe6]">Font &ndash; BDO Grotesk</h2>
-                <p className="text-base font-light text-[#ffefe6]/70 leading-relaxed">
-                  This template uses BDO Grotesk, a free font under the OFL License. All 7 font weights are bundled locally.
-                </p>
-              </div>
-
-              <div className="p-8 rounded-2xl bg-white/[0.02] border border-[#262626] space-y-4">
-                <h2 className="text-2xl font-light text-[#ffefe6]">Image License</h2>
-                <p className="text-base font-light text-[#ffefe6]/70 leading-relaxed">
-                  All images in this template are made with Midjourney and custom 3D workflows by Jacob Nielsen.
-                </p>
-              </div>
+        {/* Forms */}
+        <div className="section">
+          <div className="container styleguide-container">
+            <div className="styleguide-heading-wrapper">
+              <h2 className="text-large margin-bottom-8">Forms</h2>
+              <p>Here you can see and change the form component</p>
+            </div>
+            <div className="w-form">
+              <form id="email-form" name="email-form" data-name="Email Form" className="form">
+                <input className="text-field w-input" maxLength={256} name="name" data-name="Name" placeholder="Your name" type="text" id="name" />
+                <input className="text-field w-input" maxLength={256} name="email" data-name="Email" placeholder="Your email" type="email" id="email" required />
+                <input type="submit" data-wait="Please wait..." className="submit-button w-button" value="Submit your message" />
+              </form>
             </div>
           </div>
-        )}
+        </div>
 
-        {/* 3. Changelog */}
-        {page === 'changelog' && (
-          <div className="space-y-12">
-            <div>
-              <h1 className="text-6xl md:text-8xl font-light tracking-tight text-[#ffefe6] mb-4">
-                Changelog
-              </h1>
-              <p className="text-[#ffefe6]/80 text-lg font-light max-w-xl">
-                Release version history and milestone updates.
-              </p>
+        {/* Rich text */}
+        <div className="section last-section">
+          <div className="container styleguide-container">
+            <div className="styleguide-heading-wrapper">
+              <h2 className="text-large margin-bottom-8">Rich text</h2>
+              <p>Here you can see and change the rich text component</p>
             </div>
-
-            <div className="border-t border-[#262626] pt-10 space-y-8">
-              <div className="p-8 rounded-2xl bg-white/[0.02] border border-[#262626] space-y-4">
-                <div className="flex items-center justify-between">
-                  <h2 className="text-2xl font-light text-[#ffefe6]">Version 1.0</h2>
-                  <span className="text-xs font-mono text-[#ffefe6]/40 uppercase tracking-widest">October 2026</span>
+            <div className="rich-text-block w-richtext">
+              <h1>What’s a Rich Text element?</h1>
+              <p>The rich text element allows you to create and format headings, paragraphs, blockquotes, images, and video all in one place instead of having to add and format them individually. Just double-click and easily create content.Headings, paragraphs, blockquotes, figures, images, and figure captions can all be styled after a class is added to the rich text element using the &quot;When inside of&quot; nested selector system.</p>
+              <h2>This is how it works</h2>
+              <p>Headings, paragraphs, blockquotes, figures, images, and figure captions can all be styled after a class is added to the rich text element using the &quot;When inside of&quot; nested selector system.Headings, paragraphs, blockquotes, figures, images, and figure captions can all be styled after a class is added to the rich text element using the &quot;When inside of&quot; nested selector system.</p>
+              <figure className="w-richtext-align-center w-richtext-figure-type-image">
+                <div>
+                  <img src="https://cdn.prod.website-files.com/61a7c60115631649fc02f183/61a7c601156316317302f1a1_leon-bzqU01v-G54-unsplash-min.jpg" loading="lazy" alt="" />
                 </div>
-                <p className="text-base font-light text-[#ffefe6]/70 leading-relaxed">
-                  Initial release. Rebuilt 1:1 in Next.js 14 App Router with Tailwind CSS, Framer Motion, and BDOGrotesk typography.
-                </p>
-              </div>
+                <figcaption>Image with a caption</figcaption>
+              </figure>
+              <h3>Static and dynamic content editing</h3>
+              <blockquote>A rich text element can be used with static or dynamic content. For static content, just drop it into any page and begin editing. For dynamic content, add a rich text field to any collection and then connect a rich text element to that field in the settings panel. Voila!</blockquote>
+              <h4>How to customize formatting for each rich text</h4>
+              <p>Headings, paragraphs, blockquotes, figures, images, and figure captions can all be styled after a class is added to the rich text element using the &quot;When inside of&quot; nested selector system.</p>
+              <h5>Yet another heading</h5>
+              <p>Headings, paragraphs, blockquotes, figures, images, and figure captions can all be styled after a class is added to the rich text element using the &quot;When inside of&quot; nested selector system.</p>
+              <ul role="list">
+                <li>This is a very nice bullet</li>
+                <li>And so is this</li>
+                <li>And here is a third one</li>
+              </ul>
+              <h6>Last one, I promise</h6>
+              <p>Headings, paragraphs, blockquotes, figures, images, and figure captions can all be styled after a class is added to the rich text element using the &quot;When inside of&quot; nested selector system.</p>
             </div>
           </div>
-        )}
-      </div>
-    </main>
-  );
+        </div>
+      </main>
+    );
+  }
+
+  if (page === 'licenses') {
+    return (
+      <main className="min-h-screen bg-[#120f10] text-[#ffefe6]">
+        <div className="section styelguide-hero-section">
+          <div className="container styleguide-container">
+            <h1 className="styleguide-heading">Licenses</h1>
+            <p>All graphical assets in this template are licensed for personal and commercial use. If you&apos;d like to use a specific asset, please check the license below.</p>
+            <div className="divider styleguide-bottom-divider" />
+          </div>
+        </div>
+
+        <div className="section">
+          <div className="container styleguide-container">
+            <div className="styleguide-heading-wrapper">
+              <h2 className="text-large margin-bottom-8">Font –&nbsp;BDO&nbsp;Grotesk</h2>
+              <p>
+                This template uses BDO&nbsp;Grotesk, a free font under the OFL License. It is available{' '}
+                <a href="https://fontesk.com/bdo-grotesk-font/" target="_blank" rel="noopener noreferrer" className="link underline">
+                  here.
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="section last-section">
+          <div className="container styleguide-container">
+            <div className="styleguide-heading-wrapper">
+              <h2 className="text-large margin-bottom-8">Image license</h2>
+              <p>All images in this template are made with Midjourney.</p>
+            </div>
+          </div>
+        </div>
+      </main>
+    );
+  }
+
+  if (page === 'changelog') {
+    return (
+      <main className="min-h-screen bg-[#120f10] text-[#ffefe6]">
+        <div className="section styelguide-hero-section">
+          <div className="container styleguide-container">
+            <h1 className="styleguide-heading">Changelog</h1>
+          </div>
+        </div>
+
+        <div className="section">
+          <div className="container styleguide-container">
+            <div className="styleguide-heading-wrapper">
+              <h2 className="text-large margin-bottom-8">Version 1.0</h2>
+              <p>Initial release</p>
+            </div>
+          </div>
+        </div>
+      </main>
+    );
+  }
+
+  return null;
 }
