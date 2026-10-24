@@ -1,5 +1,6 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
 import { PROJECTS, Project } from '@/data/projects';
 import ProjectDetailView from '@/components/project/ProjectDetailView';
 
@@ -7,6 +8,12 @@ export function generateStaticParams() {
   return PROJECTS.map((project) => ({
     slug: project.slug,
   }));
+}
+
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  return {
+    title: 'Rosa',
+  };
 }
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
