@@ -23,7 +23,7 @@ export const PROJECTS: Project[] = [
     client: "SoundCore Labs",
     coverImage: "/assets/speaker3.webp",
     description:
-      "This case study demonstrates the power of 3D design in transforming architectural and acoustic concepts into compelling visual narratives. By combining technical expertise with a collaborative approach, I was able to deliver a product that not only met but exceeded the client's expectations.",
+      "This case study demonstrates the power of 3D design in transforming architectural concepts into compelling visual narratives. By combining technical expertise with a collaborative approach, I was able to deliver a product that not only met but exceeded the client's expectations.",
     challenge:
       "The client required high-fidelity visual representations of an audiophile acoustic sound sculpture. The primary challenge was rendering micro-perforated acoustic mesh, brushed aluminum edges, and realistic fabric tension under complex studio illumination.",
     solution:
@@ -35,9 +35,9 @@ export const PROJECTS: Project[] = [
       "Motion Turnaround Sequences"
     ],
     gallery: [
-      "/assets/speaker.webp",
       "/assets/speaker2.webp",
-      "/assets/speaker3.webp"
+      "/assets/speaker3.webp",
+      "/assets/speaker.webp"
     ]
   },
   {
@@ -49,7 +49,7 @@ export const PROJECTS: Project[] = [
     client: "Minimal Goods",
     coverImage: "/assets/wrapped.webp",
     description:
-      "An exploration of luxury packaging design focusing on tactile finishes, embossed typography, and paper physics. We crafted sustainable, modern packaging visuals tailored for premium lifestyle goods.",
+      "This case study demonstrates the power of 3D design in transforming architectural concepts into compelling visual narratives. By combining technical expertise with a collaborative approach, I was able to deliver a product that not only met but exceeded the client's expectations.",
     challenge:
       "Replicating the delicate fiber grain of recycled paper pulp alongside spot-gloss UV foils and realistic folds required bespoke physical material calibrations.",
     solution:
@@ -61,9 +61,9 @@ export const PROJECTS: Project[] = [
       "Lookbook Renders"
     ],
     gallery: [
-      "/assets/wrapped.webp",
       "/assets/wrapped2.webp",
-      "/assets/wrapped3.webp"
+      "/assets/wrapped3.webp",
+      "/assets/wrapped.webp"
     ]
   },
   {
@@ -75,7 +75,7 @@ export const PROJECTS: Project[] = [
     client: "FormWorks",
     coverImage: "/assets/printer2.webp",
     description:
-      "Conceptual reimagination of modern desktop fabrication equipment. The project explores retro-futuristic utilitarian ergonomics with clean geometry and functional modular components.",
+      "This case study demonstrates the power of 3D design in transforming architectural concepts into compelling visual narratives. By combining technical expertise with a collaborative approach, I was able to deliver a product that not only met but exceeded the client's expectations.",
     challenge:
       "Balancing mechanical authenticity with an approachable design aesthetic. Every hinge, capacitive interface, and thermal vent was engineered to look functionally plausible while adhering to minimalist design ideals.",
     solution:
@@ -101,7 +101,7 @@ export const PROJECTS: Project[] = [
     client: "Voxel Realm",
     coverImage: "/assets/scapes3.webp",
     description:
-      "Surreal architectural landscapes blending organic geologic formations with monolithic architectural interventions. A study of atmospheric haze, scale, and tranquil natural lighting.",
+      "This case study demonstrates the power of 3D design in transforming architectural concepts into compelling visual narratives. By combining technical expertise with a collaborative approach, I was able to deliver a product that not only met but exceeded the client's expectations.",
     challenge:
       "Creating colossal terrains with natural rock stratification, procedural weathering, and complex atmospheric scattering across broad focal lengths.",
     solution:
@@ -113,9 +113,9 @@ export const PROJECTS: Project[] = [
       "Large-Format Art Prints"
     ],
     gallery: [
-      "/assets/scapes.webp",
       "/assets/scapes2.webp",
       "/assets/scapes3.webp",
+      "/assets/scapes.webp",
       "/assets/scapes4.webp"
     ]
   }
