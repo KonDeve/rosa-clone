@@ -51,13 +51,13 @@ export default function WorkSection() {
                         {project.title}
                       </span>
                     </div>
-                    <div className="project-image relative h-[10.25vw] aspect-[16/9] mx-[2.5vw] rounded-lg overflow-hidden flex-shrink-0 bg-neutral-900 shadow-xl">
+                    <div className="project-image relative h-[10.25vw] aspect-[16/9] mx-[2.5vw] overflow-hidden flex-shrink-0 bg-neutral-900">
                       <Image
                         src={project.image}
                         alt={project.title}
                         fill
                         sizes="25vw"
-                        className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                        className="object-cover object-center"
                       />
                     </div>
                     <div className="project-title-wrap flex items-center flex-shrink-0">
@@ -65,13 +65,13 @@ export default function WorkSection() {
                         {project.title}
                       </span>
                     </div>
-                    <div className="project-image relative h-[10.25vw] aspect-[16/9] mx-[2.5vw] rounded-lg overflow-hidden flex-shrink-0 bg-neutral-900 shadow-xl">
+                    <div className="project-image relative h-[10.25vw] aspect-[16/9] mx-[2.5vw] overflow-hidden flex-shrink-0 bg-neutral-900">
                       <Image
                         src={project.image}
                         alt={project.title}
                         fill
                         sizes="25vw"
-                        className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                        className="object-cover object-center"
                       />
                     </div>
                   </div>
@@ -83,13 +83,13 @@ export default function WorkSection() {
                         {project.title}
                       </span>
                     </div>
-                    <div className="project-image relative h-[10.25vw] aspect-[16/9] mx-[2.5vw] rounded-lg overflow-hidden flex-shrink-0 bg-neutral-900 shadow-xl">
+                    <div className="project-image relative h-[10.25vw] aspect-[16/9] mx-[2.5vw] overflow-hidden flex-shrink-0 bg-neutral-900">
                       <Image
                         src={project.image}
                         alt={project.title}
                         fill
                         sizes="25vw"
-                        className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                        className="object-cover object-center"
                       />
                     </div>
                     <div className="project-title-wrap flex items-center flex-shrink-0">
@@ -97,13 +97,13 @@ export default function WorkSection() {
                         {project.title}
                       </span>
                     </div>
-                    <div className="project-image relative h-[10.25vw] aspect-[16/9] mx-[2.5vw] rounded-lg overflow-hidden flex-shrink-0 bg-neutral-900 shadow-xl">
+                    <div className="project-image relative h-[10.25vw] aspect-[16/9] mx-[2.5vw] overflow-hidden flex-shrink-0 bg-neutral-900">
                       <Image
                         src={project.image}
                         alt={project.title}
                         fill
                         sizes="25vw"
-                        className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                        className="object-cover object-center"
                       />
                     </div>
                   </div>
