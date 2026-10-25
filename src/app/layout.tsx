@@ -5,11 +5,30 @@ import Footer from '@/components/common/Footer';
 import CustomCursor from '@/components/cursor/CustomCursor';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://rosa-clone.vercel.app'),
   title: 'Rosa — Webflow HTML website template',
   description:
     'Rosa is a simple and modern Webflow template for designers and creatives. Customize the styling to match your brand, and within minutes you will have created a unique experience.',
   icons: {
     icon: '/assets/Favicon.png',
+    apple: '/assets/Webclip.png',
+  },
+  openGraph: {
+    title: 'Rosa — Webflow HTML website template',
+    description:
+      'Rosa is a simple and modern Webflow template for designers and creatives.',
+    url: 'https://rosa-clone.vercel.app',
+    siteName: 'Rosa',
+    images: [
+      {
+        url: '/assets/hero.png',
+        width: 1200,
+        height: 630,
+        alt: 'Rosa 3D Design Portfolio',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
 };
 
