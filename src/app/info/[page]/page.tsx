@@ -105,7 +105,7 @@ export default function InfoPage({ params }: { params: { page: string } }) {
               <p>Headings, paragraphs, blockquotes, figures, images, and figure captions can all be styled after a class is added to the rich text element using the &quot;When inside of&quot; nested selector system.Headings, paragraphs, blockquotes, figures, images, and figure captions can all be styled after a class is added to the rich text element using the &quot;When inside of&quot; nested selector system.</p>
               <figure className="w-richtext-align-center w-richtext-figure-type-image">
                 <div>
-                  <img src="https://cdn.prod.website-files.com/61a7c60115631649fc02f183/61a7c601156316317302f1a1_leon-bzqU01v-G54-unsplash-min.jpg" loading="lazy" alt="" />
+                  <img src="/assets/styleguide-sample.jpg" loading="lazy" alt="" />
                 </div>
                 <figcaption>Image with a caption</figcaption>
               </figure>
