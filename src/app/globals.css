@@ -375,3 +375,9 @@ body {
     display: none;
   }
 }
+
+@media (pointer: coarse) {
+  .cursor-frame {
+    display: none !important;
+  }
+}
