@@ -260,6 +260,12 @@ body {
   grid-area: 2 / 5 / 3 / 13;
 }
 
+/* About "What I do" list item: override Tailwind's .list-item utility to prevent bullet discs */
+.list-item {
+  display: block !important;
+  list-style: none !important;
+}
+
 /* Clients list item 8-column layout matching Webflow */
 .clients-list-item {
   display: grid;

@@ -88,7 +88,7 @@ export default function AboutSection() {
               {WHAT_I_DO.map((item) => (
                 <motion.div
                   key={item}
-                  className="list-item"
+                  className="list-item block list-none"
                   initial={{ y: '5rem', opacity: 0 }}
                   whileInView={{ y: '0rem', opacity: 1 }}
                   viewport={{ once: true }}
