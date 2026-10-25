@@ -1,9 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Project } from '@/data/projects';
 
 interface ProjectStripMeta {
@@ -39,6 +39,35 @@ const PROJECT_STRIPS: Record<string, ProjectStripMeta> = {
     bgColor: '#8fa6b3',
   },
 };
+
+function ParallaxGalleryItem({ imgUrl, alt }: { imgUrl: string; alt: string }) {
+  const itemRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: itemRef,
+    offset: ['start end', 'end start'],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ['-6%', '6%']);
+
+  return (
+    <div
+      ref={itemRef}
+      className="image-wrap relative aspect-[16/9] w-full overflow-hidden bg-neutral-900"
+    >
+      <motion.div
+        style={{ y }}
+        className="relative w-full h-[115%] -top-[7.5%]"
+      >
+        <Image
+          src={imgUrl}
+          alt={alt}
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </motion.div>
+    </div>
+  );
+}
 
 export default function ProjectDetailView({
   project,
@@ -144,18 +173,11 @@ export default function ProjectDetailView({
         <div className="container">
           <div className="images-list flex flex-col gap-6">
             {project.gallery.map((imgUrl, idx) => (
-              <div
+              <ParallaxGalleryItem
                 key={idx}
-                className="image-wrap relative aspect-[16/9] w-full overflow-hidden bg-neutral-900"
-              >
-                <Image
-                  src={imgUrl}
-                  alt={`${project.title} render ${idx + 1}`}
-                  fill
-                  sizes="100vw"
-                  className="parallax-image object-cover object-center"
-                />
-              </div>
+                imgUrl={imgUrl}
+                alt={`${project.title} render ${idx + 1}`}
+              />
             ))}
           </div>
         </div>
