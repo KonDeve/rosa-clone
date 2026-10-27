@@ -2095,9 +2095,8 @@ textarea.w-input, textarea.w-select {
   --font-size--base: 1.25rem;
   --font-size--small: 1rem;
   --fluid-font-size--large: 13vw;
-  --font-size--fluid-large\<deleted\|variable-3c670483-0d25-f65b-71af-32b2d54862c2\>: 11vw;
+  --font-size--fluid-large: 11vw;
   --font-size--2xl: 2.5rem;
-  --font-size--large\<deleted\|variable-ec2b6f44-f000-7234-cbc3-d1529974517b\>: 1.5rem;
   --font-size--large: 1.5rem;
   --site-padding--tablet: 2rem;
   --site-padding--mobile: 1rem;
@@ -2106,9 +2105,6 @@ textarea.w-input, textarea.w-select {
   --fluid-font-size--small: 2.6vw;
   --font-size--xl: 2rem;
   --color--brand: #f0281e;
-  --font-size--medium\<deleted\|variable-b7e90277-86c7-b9e4-63b9-82af05bd5fc5\>: 1rem;
-  --color--white\<deleted\|variable-8b6b6a94\>: white;
-  --color--medium-grey\<deleted\|variable-8e7a1c56\>: #7a7c7e;
   --color--medium-dark: #17181b;
   --fluid-font-size--xl: 23vw;
   --fluid-font-size--medium: 8.25vw;
@@ -2403,7 +2399,7 @@ figcaption {
 .rich-text-block blockquote {
   border-left-color: var(--color--brand);
   font-family: Bdogrotesk, sans-serif;
-  font-size: var(--font-size--medium\<deleted\|variable-b7e90277-86c7-b9e4-63b9-82af05bd5fc5\>);
+  font-size: var(--font-size--small);
   margin-top: 2rem;
   margin-bottom: 3rem;
   line-height: 150%;
@@ -2467,12 +2463,12 @@ figcaption {
 }
 
 .text-field:active {
-  border-bottom-color: var(--color--white\<deleted\|variable-8b6b6a94\>);
+  border-bottom-color: #ffffff;
   line-height: 150%;
 }
 
 .text-field:focus {
-  border-bottom-color: var(--color--medium-grey\<deleted\|variable-8e7a1c56\>);
+  border-bottom-color: #7a7c7e;
   line-height: 150%;
 }
 
@@ -3095,7 +3091,7 @@ figcaption {
 
 @media screen and (max-width: 991px) {
   h1 {
-    font-size: var(--font-size--fluid-large\<deleted\|variable-3c670483-0d25-f65b-71af-32b2d54862c2\>);
+    font-size: var(--font-size--fluid-large);
     letter-spacing: -.05vw;
     line-height: 100%;
   }
@@ -3362,12 +3358,12 @@ figcaption {
 
 @media screen and (max-width: 767px) {
   h1 {
-    font-size: var(--font-size--fluid-large\<deleted\|variable-3c670483-0d25-f65b-71af-32b2d54862c2\>);
+    font-size: var(--font-size--fluid-large);
     letter-spacing: 0;
   }
 
   h2 {
-    font-size: var(--font-size--large\<deleted\|variable-ec2b6f44-f000-7234-cbc3-d1529974517b\>);
+    font-size: var(--font-size--large);
   }
 
   h3 {
@@ -3435,12 +3431,12 @@ figcaption {
   }
 
   h1 {
-    font-size: var(--font-size--fluid-large\<deleted\|variable-3c670483-0d25-f65b-71af-32b2d54862c2\>);
+    font-size: var(--font-size--fluid-large);
     letter-spacing: 0;
   }
 
   h2 {
-    font-size: var(--font-size--large\<deleted\|variable-ec2b6f44-f000-7234-cbc3-d1529974517b\>);
+    font-size: var(--font-size--large);
     letter-spacing: -.025rem;
   }
 
