@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 
@@ -113,7 +114,13 @@ export default function InfoPage({ params }: { params: { page: string } }) {
               <p>Headings, paragraphs, blockquotes, figures, images, and figure captions can all be styled after a class is added to the rich text element using the &quot;When inside of&quot; nested selector system.Headings, paragraphs, blockquotes, figures, images, and figure captions can all be styled after a class is added to the rich text element using the &quot;When inside of&quot; nested selector system.</p>
               <figure className="w-richtext-align-center w-richtext-figure-type-image">
                 <div>
-                  <img src="/assets/styleguide-sample.jpg" loading="lazy" alt="" />
+                  <Image
+                    src="/assets/styleguide-sample.jpg"
+                    alt="Example image"
+                    width={1200}
+                    height={800}
+                    style={{ height: 'auto' }}
+                  />
                 </div>
                 <figcaption>Image with a caption</figcaption>
               </figure>

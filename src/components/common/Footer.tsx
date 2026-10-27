@@ -74,12 +74,15 @@ export default function Footer() {
               <div className="hero-link-text">hi@rosastudio.com</div>
               <div className="hero-link-text hover-text" aria-hidden="true">hi@rosastudio.com</div>
               <div className="arrow-wrap">
+                {/* Static 2 KB SVG; intentionally raw (next/image adds no value here) */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/assets/arrow-diag2.svg"
                   alt=""
                   className="hero-button-arrow"
                   loading="lazy"
                 />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/assets/arrow-diag2.svg"
                   alt=""

@@ -107,11 +107,14 @@ export default function HeroSection() {
                   </div>
 
                   <div className="arrow-wrap relative w-7 h-7 sm:w-8 sm:h-8 lg:w-[2vw] lg:h-[2vw] overflow-hidden self-center">
+                    {/* Static 2 KB SVG; intentionally raw (next/image adds no value here) */}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src="/assets/arrow-diag.svg"
                       alt=""
                       className="hero-button-arrow w-full h-full transition-transform duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] group-hover:translate-x-full group-hover:-translate-y-full"
                     />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src="/assets/arrow-diag.svg"
                       alt=""

@@ -73,6 +73,8 @@ export default function Navbar() {
               }
             }}
           >
+            {/* Static SVG logo; intentionally raw (next/image adds no value here) */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/assets/Rosa.svg" alt="" className="logo" loading="lazy" />
           </Link>
 
