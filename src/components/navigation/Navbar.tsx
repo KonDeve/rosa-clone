@@ -40,6 +40,15 @@ export default function Navbar() {
     };
   }, [open, isMobile]);
 
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [open]);
+
   return (
     <header
       className="navbar w-nav"
@@ -54,7 +63,8 @@ export default function Navbar() {
         <div className="w-layout-grid _12-column-grid nav-grid">
           <Link
             href="/"
-            aria-current="page"
+            aria-current={isHome ? 'page' : undefined}
+            aria-label="Rosa — back to home"
             className="logo-wrap brand w--current cell-nav-logo"
             onClick={(e) => {
               if (typeof window !== 'undefined' && (window.location.pathname === '/' || window.location.pathname === '')) {
@@ -66,25 +76,22 @@ export default function Navbar() {
             <img src="/assets/Rosa.svg" alt="" className="logo" loading="lazy" />
           </Link>
 
-          <div
-            className="menu-button"
+          <button
+            type="button"
+            className="menu-button cursor-pointer"
             onClick={() => setOpen((value) => !value)}
             aria-label={open ? 'Close menu' : 'Open menu'}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(event) => {
-              if (event.key === 'Enter' || event.key === ' ') {
-                setOpen((value) => !value);
-              }
-            }}
+            aria-expanded={open}
+            aria-controls="main-nav-menu"
           >
             <div className={`menu-lines-wrap${open ? ' menu-lines-open' : ''}`}>
               <div className="menu-line is-top" />
               <div className="menu-line is-bottom" />
             </div>
-          </div>
+          </button>
 
           <nav
+            id="main-nav-menu"
             className={`nav-menu w-nav-menu cell-nav-menu${open ? ' menu-open' : ''}`}
             data-nav-menu-open={open || undefined}
             aria-label="Main"
@@ -122,7 +129,7 @@ export default function Navbar() {
                     }}
                   >
                     <div className="nav-link-text">{link.label}</div>
-                    <div className="nav-link-text nav-link-hover-text">{link.label}</div>
+                    <div className="nav-link-text nav-link-hover-text" aria-hidden="true">{link.label}</div>
                   </motion.a>
                 );
               })}

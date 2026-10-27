@@ -202,6 +202,14 @@ body {
   transition: transform 0.5s var(--ease-out-expo);
 }
 
+/* The burger exists only below the Webflow tablet breakpoint; above it the
+   button is display:none so it can never be found by keyboard users. */
+@media screen and (min-width: 992px) {
+  .menu-button {
+    display: none !important;
+  }
+}
+
 /*
  * ============================================================
  * Grid cell placements
