@@ -6,40 +6,6 @@ import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Project } from '@/data/projects';
 
-interface ProjectStripMeta {
-  title: string;
-  slug: string;
-  image: string;
-  bgColor: string;
-}
-
-const PROJECT_STRIPS: Record<string, ProjectStripMeta> = {
-  speaker: {
-    title: 'Speaker',
-    slug: 'speaker',
-    image: '/assets/speaker3.webp',
-    bgColor: '#a7a79b',
-  },
-  package: {
-    title: 'Package',
-    slug: 'package',
-    image: '/assets/wrapped.webp',
-    bgColor: '#aa93c0',
-  },
-  printer: {
-    title: 'Printer',
-    slug: 'printer',
-    image: '/assets/printer2.webp',
-    bgColor: '#303438',
-  },
-  scapes: {
-    title: 'Scapes',
-    slug: 'scapes',
-    image: '/assets/scapes3.webp',
-    bgColor: '#8fa6b3',
-  },
-};
-
 function ParallaxGalleryItem({ imgUrl, alt }: { imgUrl: string; alt: string }) {
   const itemRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -76,7 +42,7 @@ export default function ProjectDetailView({
   project: Project;
   nextProject: Project;
 }) {
-  const nextStrip = PROJECT_STRIPS[nextProject.slug];
+  const nextStrip = nextProject;
 
   return (
     <article className="page-wrapper min-h-screen bg-[#120f10] text-[#ffefe6]">
@@ -169,7 +135,7 @@ export default function ProjectDetailView({
       </div>
 
       {/* 3. Image Gallery (Exact Webflow images-list) */}
-      <div id="work" className="section">
+      <div className="section">
         <div className="container">
           <div className="images-list flex flex-col gap-6">
             {project.gallery.map((imgUrl, idx) => (
@@ -184,7 +150,7 @@ export default function ProjectDetailView({
       </div>
 
       {/* 4. Next Project Intro (Exact Webflow section no-padding-bottom) */}
-      <div id="work" className="section no-padding-bottom">
+      <div className="section no-padding-bottom">
         <div className="container">
           <div className="w-layout-grid _12-column-grid">
             <p
@@ -199,7 +165,7 @@ export default function ProjectDetailView({
       </div>
 
       {/* 5. Next Project Marquee Strip (Exact Webflow last-section) */}
-      <div id="work" className="section last-section w-full pb-24 md:pb-32">
+      <div className="section last-section w-full pb-24 md:pb-32">
         <Link
           href={`/project/${nextStrip.slug}`}
           prefetch={true}
@@ -221,7 +187,7 @@ export default function ProjectDetailView({
                 </div>
                 <div className="project-image relative h-[10.25vw] aspect-[16/9] mx-[2.5vw] overflow-hidden flex-shrink-0 bg-neutral-900">
                   <Image
-                    src={nextStrip.image}
+                    src={nextStrip.coverImage}
                     alt={nextStrip.title}
                     fill
                     sizes="25vw"
@@ -235,7 +201,7 @@ export default function ProjectDetailView({
                 </div>
                 <div className="project-image relative h-[10.25vw] aspect-[16/9] mx-[2.5vw] overflow-hidden flex-shrink-0 bg-neutral-900">
                   <Image
-                    src={nextStrip.image}
+                    src={nextStrip.coverImage}
                     alt={nextStrip.title}
                     fill
                     sizes="25vw"
@@ -252,7 +218,7 @@ export default function ProjectDetailView({
                 </div>
                 <div className="project-image relative h-[10.25vw] aspect-[16/9] mx-[2.5vw] overflow-hidden flex-shrink-0 bg-neutral-900">
                   <Image
-                    src={nextStrip.image}
+                    src={nextStrip.coverImage}
                     alt={nextStrip.title}
                     fill
                     sizes="25vw"
@@ -266,7 +232,7 @@ export default function ProjectDetailView({
                 </div>
                 <div className="project-image relative h-[10.25vw] aspect-[16/9] mx-[2.5vw] overflow-hidden flex-shrink-0 bg-neutral-900">
                   <Image
-                    src={nextStrip.image}
+                    src={nextStrip.coverImage}
                     alt={nextStrip.title}
                     fill
                     sizes="25vw"

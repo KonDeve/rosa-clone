@@ -1,30 +1,14 @@
-'use client';
-
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-
-interface ProjectItem {
-  slug: string;
-  title: string;
-  image: string;
-  bgColor: string;
-  reverse?: boolean;
-}
-
-const PROJECTS: ProjectItem[] = [
-  { slug: 'speaker', title: 'Speaker', image: '/assets/speaker3.webp', bgColor: '#a7a79b' },
-  { slug: 'package', title: 'Package', image: '/assets/wrapped.webp', bgColor: '#aa93c0', reverse: true },
-  { slug: 'printer', title: 'Printer', image: '/assets/printer2.webp', bgColor: '#303438' },
-  { slug: 'scapes', title: 'Scapes', image: '/assets/scapes3.webp', bgColor: '#8fa6b3', reverse: true },
-];
+import { PROJECTS } from '@/data/projects';
 
 export default function WorkSection() {
   return (
     <section id="work" className="section w-full bg-[#120f10]">
       <div className="w-full">
         {PROJECTS.map((project, idx) => {
-          const trackClass = project.reverse ? 'marquee-track-right' : 'marquee-track-left';
+          const trackClass = idx % 2 === 1 ? 'marquee-track-right' : 'marquee-track-left';
 
           return (
             <Link
@@ -53,7 +37,7 @@ export default function WorkSection() {
                     </div>
                     <div className="project-image relative h-[10.25vw] aspect-[16/9] mx-[2.5vw] overflow-hidden flex-shrink-0 bg-neutral-900">
                       <Image
-                        src={project.image}
+                        src={project.coverImage}
                         alt={project.title}
                         fill
                         sizes="25vw"
@@ -67,7 +51,7 @@ export default function WorkSection() {
                     </div>
                     <div className="project-image relative h-[10.25vw] aspect-[16/9] mx-[2.5vw] overflow-hidden flex-shrink-0 bg-neutral-900">
                       <Image
-                        src={project.image}
+                        src={project.coverImage}
                         alt={project.title}
                         fill
                         sizes="25vw"
@@ -85,7 +69,7 @@ export default function WorkSection() {
                     </div>
                     <div className="project-image relative h-[10.25vw] aspect-[16/9] mx-[2.5vw] overflow-hidden flex-shrink-0 bg-neutral-900">
                       <Image
-                        src={project.image}
+                        src={project.coverImage}
                         alt={project.title}
                         fill
                         sizes="25vw"
@@ -99,7 +83,7 @@ export default function WorkSection() {
                     </div>
                     <div className="project-image relative h-[10.25vw] aspect-[16/9] mx-[2.5vw] overflow-hidden flex-shrink-0 bg-neutral-900">
                       <Image
-                        src={project.image}
+                        src={project.coverImage}
                         alt={project.title}
                         fill
                         sizes="25vw"

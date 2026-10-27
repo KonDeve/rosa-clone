@@ -6,6 +6,7 @@ export interface Project {
   year: string;
   client: string;
   coverImage: string;
+  bgColor: string;
   description: string;
   challenge: string;
   solution: string;
@@ -22,6 +23,7 @@ export const PROJECTS: Project[] = [
     year: "2024",
     client: "SoundCore Labs",
     coverImage: "/assets/speaker3.webp",
+    bgColor: "#a7a79b",
     description:
       "This case study demonstrates the power of 3D design in transforming architectural concepts into compelling visual narratives. By combining technical expertise with a collaborative approach, I was able to deliver a product that not only met but exceeded the client's expectations.",
     challenge:
@@ -48,6 +50,7 @@ export const PROJECTS: Project[] = [
     year: "2024",
     client: "Minimal Goods",
     coverImage: "/assets/wrapped.webp",
+    bgColor: "#aa93c0",
     description:
       "This case study demonstrates the power of 3D design in transforming architectural concepts into compelling visual narratives. By combining technical expertise with a collaborative approach, I was able to deliver a product that not only met but exceeded the client's expectations.",
     challenge:
@@ -74,6 +77,7 @@ export const PROJECTS: Project[] = [
     year: "2023",
     client: "FormWorks",
     coverImage: "/assets/printer2.webp",
+    bgColor: "#303438",
     description:
       "This case study demonstrates the power of 3D design in transforming architectural concepts into compelling visual narratives. By combining technical expertise with a collaborative approach, I was able to deliver a product that not only met but exceeded the client's expectations.",
     challenge:
@@ -100,6 +104,7 @@ export const PROJECTS: Project[] = [
     year: "2023",
     client: "Voxel Realm",
     coverImage: "/assets/scapes3.webp",
+    bgColor: "#8fa6b3",
     description:
       "This case study demonstrates the power of 3D design in transforming architectural concepts into compelling visual narratives. By combining technical expertise with a collaborative approach, I was able to deliver a product that not only met but exceeded the client's expectations.",
     challenge:
