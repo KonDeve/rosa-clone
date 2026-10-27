@@ -171,6 +171,17 @@ body {
   pointer-events: none;
 }
 
+/* About portrait box: bottom-anchored, horizontally centered, 110% height
+   (replaces Webflow .fullscreen-image on the portrait img). */
+.portrait-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  height: 110%;
+  aspect-ratio: 2135 / 1354;
+  transform: translateX(-50%);
+}
+
 /*
  * ============================================================
  * Burger lines morph

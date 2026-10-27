@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
+import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const EASE_OUT_EXPO = [0.19, 1, 0.22, 1] as [number, number, number, number];
@@ -26,13 +27,17 @@ export default function AboutSection() {
     <>
       <section id="about" ref={sectionRef} className="section about-section">
         <div className="fullscreen-image-wrap about-image-wrap">
-          <motion.img
-            src="/assets/Jacob_Nielsen_MJ_14.png"
-            alt=""
-            className="fullscreen-image"
-            loading="lazy"
-            style={{ y: portraitY }}
-          />
+          <motion.div style={{ y: portraitY }} className="relative h-full w-full">
+            <div className="portrait-wrap">
+              <Image
+                src="/assets/Jacob_Nielsen_MJ_14.png"
+                alt=""
+                fill
+                sizes="100vw"
+                className="object-cover object-center"
+              />
+            </div>
+          </motion.div>
           <div className="about-gradient" />
         </div>
 
