@@ -39,7 +39,5 @@ action_lists.json
 asset_map.json
 ix2_snippet.json
 parsed_ix2.json
-webflow.js
-/rosa.css
 
 .vercel
