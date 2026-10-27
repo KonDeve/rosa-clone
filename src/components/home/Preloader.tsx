@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 
 const LETTERS = ['R', 'o', 's', 'a'] as const;
 const EASE_CURTAIN = [0.455, 0.03, 0.088, 0.983] as [number, number, number, number];
@@ -9,15 +9,20 @@ const EASE_OUT_EXPO = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
 export default function Preloader() {
   const [mounted, setMounted] = useState(true);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
+    if (reduceMotion) {
+      setMounted(false);
+      return;
+    }
     // Dismiss preloader after the full curtain reveal sequence
     const timer = setTimeout(() => {
       setMounted(false);
     }, 2750);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [reduceMotion]);
 
   return (
     <AnimatePresence>
@@ -27,6 +32,7 @@ export default function Preloader() {
           transition={{ duration: 0.2 }}
           className="preloader fixed inset-0 z-[9999] pointer-events-none overflow-hidden select-none flex flex-col justify-end"
           style={{ display: 'flex' }}
+          aria-hidden="true"
         >
           {/* Layer 1: Red background curtain (starts at 0%, lifts to -100% at 1.75s) */}
           <motion.div

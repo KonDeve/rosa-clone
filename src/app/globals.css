@@ -20,6 +20,20 @@ html {
   font-family: var(--font-primary);
 }
 
+/* Respect users asking for less motion: stop the looping marquees and
+   non-essential scrolling behavior (framer transforms are handled by
+   <MotionConfig reducedMotion="user"> in the root layout). */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee-track-left,
+  .marquee-track-right {
+    animation: none;
+  }
+}
+
 body {
   background-color: var(--color-dark) !important;
   color: var(--color-white) !important;

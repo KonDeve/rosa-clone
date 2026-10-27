@@ -101,7 +101,7 @@ export default function HeroSection() {
                     <span className="hero-link-text block transition-transform duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] group-hover:-translate-y-full">
                       All work
                     </span>
-                    <span className="hero-link-text hover-text absolute top-full left-0 block transition-transform duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] group-hover:-translate-y-full">
+                    <span className="hero-link-text hover-text absolute top-full left-0 block transition-transform duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] group-hover:-translate-y-full" aria-hidden="true">
                       All work
                     </span>
                   </div>

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { MotionConfig } from 'framer-motion';
 import './globals.css';
 import Navbar from '@/components/navigation/Navbar';
 import Footer from '@/components/common/Footer';
@@ -40,10 +41,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-[#120f10]">
       <body className="bg-[#120f10] text-[#ffefe6] antialiased min-h-screen overflow-x-hidden selection:bg-[#ffefe6] selection:text-[#120f10]">
-        <CustomCursor />
-        <Navbar />
-        {children}
-        <Footer />
+        <MotionConfig reducedMotion="user">
+          <CustomCursor />
+          <Navbar />
+          {children}
+          <Footer />
+        </MotionConfig>
       </body>
     </html>
   );

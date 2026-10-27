@@ -74,7 +74,7 @@ export default function Footer() {
               className="large-link footer-large-link w-inline-block"
             >
               <div className="hero-link-text">hi@rosastudio.com</div>
-              <div className="hero-link-text hover-text">hi@rosastudio.com</div>
+              <div className="hero-link-text hover-text" aria-hidden="true">hi@rosastudio.com</div>
               <div className="arrow-wrap">
                 <img
                   src="/assets/arrow-diag2.svg"
