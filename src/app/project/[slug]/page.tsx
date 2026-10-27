@@ -4,6 +4,8 @@ import type { Metadata } from 'next';
 import { PROJECTS, Project } from '@/data/projects';
 import ProjectDetailView from '@/components/project/ProjectDetailView';
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return PROJECTS.map((project) => ({
     slug: project.slug,
@@ -11,8 +13,19 @@ export function generateStaticParams() {
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  const project = PROJECTS.find((p) => p.slug === params.slug);
+  if (!project) {
+    return { title: 'Not Found' };
+  }
+
   return {
-    title: 'Rosa',
+    title: project.title,
+    description: project.description,
+    openGraph: {
+      title: project.title,
+      description: project.description,
+      images: [{ url: project.coverImage, alt: project.title }],
+    },
   };
 }
 

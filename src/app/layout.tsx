@@ -7,7 +7,10 @@ import CustomCursor from '@/components/cursor/CustomCursor';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://rosa-clone.vercel.app'),
-  title: 'Rosa — Webflow HTML website template',
+  title: {
+    default: 'Rosa — Freelance 3D Designer Portfolio',
+    template: '%s — Rosa',
+  },
   description:
     'Rosa is a simple and modern Webflow template for designers and creatives. Customize the styling to match your brand, and within minutes you will have created a unique experience.',
   icons: {
@@ -15,14 +18,14 @@ export const metadata: Metadata = {
     apple: '/assets/Webclip.png',
   },
   openGraph: {
-    title: 'Rosa — Webflow HTML website template',
+    title: 'Rosa — Freelance 3D Designer Portfolio',
     description:
-      'Rosa is a simple and modern Webflow template for designers and creatives.',
+      'Rosa is a simple and modern template for designers and creatives. Customize the styling to match your brand, and within minutes you will have created a unique experience.',
     url: 'https://rosa-clone.vercel.app',
     siteName: 'Rosa',
     images: [
       {
-        url: '/assets/hero.png',
+        url: '/assets/og.jpg',
         width: 1200,
         height: 630,
         alt: 'Rosa 3D Design Portfolio',
@@ -30,6 +33,13 @@ export const metadata: Metadata = {
     ],
     locale: 'en_US',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Rosa — Freelance 3D Designer Portfolio',
+    description:
+      'Freelance 3D designer portfolio — selected works 2019-2024.',
+    images: ['/assets/og.jpg'],
   },
 };
 

@@ -2,6 +2,8 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return [
     { page: 'styleguide' },
@@ -13,11 +15,17 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { page: string } }): Metadata {
   const titles: Record<string, string> = {
     styleguide: 'Styleguide',
-    licenses: 'Instructions',
+    licenses: 'Licenses',
     changelog: 'Changelog',
+  };
+  const descriptions: Record<string, string> = {
+    styleguide: 'Typography, colors, forms, and rich text styles used across the Rosa template.',
+    licenses: 'Font and image license information for the Rosa template.',
+    changelog: 'Release history for the Rosa template.',
   };
   return {
     title: titles[params.page] || 'Info',
+    description: descriptions[params.page],
   };
 }
 
